@@ -9,8 +9,8 @@ function TodoList() {
 
   return (
     <div className={styles.wrapper}>
-      {todos.map((todo, i) => (
-        <TodoItem key={i} {...todo} />
+      {todos.map((todo) => (
+        <TodoItem key={todo.id} {...todo} />
       ))}
     </div>
   );

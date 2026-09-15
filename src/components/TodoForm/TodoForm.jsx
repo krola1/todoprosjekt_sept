@@ -1,12 +1,14 @@
 import { useState } from "react";
 import styles from "./TodoForm.module.css";
+import { useTodos } from "../../context/TodosContext";
 
 function TodoForm() {
   const [text, setText] = useState("");
+  const { addItem: onAdd } = useTodos();
 
   const onSubmit = (e) => {
     e.preventDefault();
-    //-- onAdd
+    onAdd(text);
     setText("");
   };
 

@@ -15,9 +15,25 @@ export const useTodos = () => {
 //----------------------------------------------------------------------
 //3. create provider
 export default function TodoProvider({ children }) {
-  const [todos, setTodos] = useState(["LarsTest"]);
+  const [todos, setTodos] = useState([]);
 
-  const value = { todos };
+  const addItem = (text) => {
+    const newItem = {
+      id: crypto.randomUUID(),
+      createdAt: Date.now(),
+      dueDate: null,
+      complete: false,
+      priority: 2,
+      title: text,
+      description: "N/A",
+      categories: ["default"],
+      tags: [],
+      subTasks: [],
+    };
+    setTodos((prev) => [...prev, newItem]);
+  };
+
+  const value = { todos, addItem };
   return (
     <TodosContext.Provider value={value}>{children}</TodosContext.Provider>
   );

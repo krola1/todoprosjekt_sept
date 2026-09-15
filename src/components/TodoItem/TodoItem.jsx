@@ -1,9 +1,9 @@
 import styles from "./TodoItem.module.css";
 
-function TodoItem() {
+function TodoItem({ title }) {
   return (
     <div className={styles.wrapper}>
-      <h2>TodoItem</h2>
+      <h2>{title}</h2>
     </div>
   );
 }
