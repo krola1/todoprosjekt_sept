@@ -1,8 +1,12 @@
+import { useTodos } from "../../context/TodosContext";
 import TodoItem from "../TodoItem";
 import styles from "./TodoList.module.css";
 
 function TodoList() {
-  const todos = ["fisk"]; //placeholder
+  const { todos } = useTodos();
+
+  console.log(todos);
+
   return (
     <div className={styles.wrapper}>
       {todos.map((todo, i) => (
