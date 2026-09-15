@@ -9,12 +9,15 @@ Categories / Tags
 Due date & time
 Subtasks / Checklist
 
+
 ---
+
+## -----------done----------
 
 change place?---
 
 ------FUNCTIONS------
-Add / Edit / Delete task
+Add / Edit / Delete task --- need edit
 
 -----render
 Search, Filter, Sort
