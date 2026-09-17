@@ -3,13 +3,13 @@ import Grid from "../../styleComponents/Grid";
 import TodoItem from "../TodoItem";
 
 function TodoList() {
-  const { todos } = useTodos();
+  const { visibleTodos } = useTodos();
 
-  console.log(todos);
+  console.log(visibleTodos);
 
   return (
     <Grid>
-      {todos.map((todo) => (
+      {visibleTodos.map((todo) => (
         <TodoItem key={todo.id} {...todo} />
       ))}
     </Grid>

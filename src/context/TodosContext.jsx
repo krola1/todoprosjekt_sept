@@ -1,6 +1,8 @@
 /* eslint-disable react-refresh/only-export-components */
 import { createContext, useContext } from "react";
 import { useLocalStorage } from "../hooks/useLocalStorage";
+import { useState } from "react";
+import { FILTERS, filterTodos } from "../constants/filter";
 
 // 1. initialize context
 const TodosContext = createContext(null);
@@ -17,6 +19,7 @@ export const useTodos = () => {
 //3. create provider
 export default function TodoProvider({ children }) {
   const [todos, setTodos] = useLocalStorage("todo_sept");
+  const [filter, setFilter] = useState(FILTERS.ALL);
 
   const addItem = (text) => {
     const newItem = {
@@ -46,7 +49,17 @@ export default function TodoProvider({ children }) {
     );
   };
 
-  const value = { todos, addItem, removeItem, toggleComplete };
+  const visibleTodos = filterTodos(todos, filter);
+
+  const value = {
+    todos,
+    visibleTodos,
+    filter,
+    setFilter,
+    addItem,
+    removeItem,
+    toggleComplete,
+  };
   return (
     <TodosContext.Provider value={value}>{children}</TodosContext.Provider>
   );
