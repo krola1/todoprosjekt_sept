@@ -19,10 +19,11 @@ Subtasks / Checklist
 ---
 
 ---FUNCTIONS------
-Add / Edit / Delete task --- need edit
+Add / Edit / Delete task ---complete
 
 -----render
-Search, Filter, Sort
+Filter, Sort -complete
+missing - search
 Projects
 
 ---

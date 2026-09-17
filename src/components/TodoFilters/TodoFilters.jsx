@@ -1,9 +1,17 @@
 import styles from "./TodoFilters.module.css";
 import { FILTER_OPTIONS } from "../../constants/filter";
 import { useTodos } from "../../context/TodosContext";
+import { DIRECTIONS, SORT_OPTIONS } from "../../constants/sort";
 
 function TodoFilters() {
-  const { filter, setFilter } = useTodos();
+  const {
+    filter,
+    setFilter,
+    sortField,
+    setSortField,
+    direction,
+    setDirection,
+  } = useTodos();
   return (
     <div>
       <select
@@ -12,17 +20,29 @@ function TodoFilters() {
         className={styles.wrapper}
       >
         {FILTER_OPTIONS.map((option) => (
-          <option value={option.value}>{option.label}</option>
+          <option key={option.value} value={option.value}>
+            {option.label}
+          </option>
         ))}
       </select>
 
-      <select name="" id="">
-        <option value="">Date</option>
-        <option value="">Priority</option>
-        <option value="">Alphabetical</option>
+      <select value={sortField} onChange={(e) => setSortField(e.target.value)}>
+        {SORT_OPTIONS.map((option) => (
+          <option key={option.value} value={option.value}>
+            {option.label}
+          </option>
+        ))}
       </select>
 
-      <button>↑↓</button>
+      <button
+        onClick={() =>
+          setDirection((prev) =>
+            prev === DIRECTIONS.ASC ? DIRECTIONS.DESC : DIRECTIONS.ASC,
+          )
+        }
+      >
+        {direction === DIRECTIONS.DESC ? "↑" : "↓"}
+      </button>
     </div>
   );
 }
