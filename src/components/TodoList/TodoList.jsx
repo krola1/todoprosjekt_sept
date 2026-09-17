@@ -1,6 +1,6 @@
 import { useTodos } from "../../context/TodosContext";
+import Grid from "../../styleComponents/Grid";
 import TodoItem from "../TodoItem";
-import styles from "./TodoList.module.css";
 
 function TodoList() {
   const { todos } = useTodos();
@@ -8,11 +8,11 @@ function TodoList() {
   console.log(todos);
 
   return (
-    <div className={styles.wrapper}>
+    <Grid>
       {todos.map((todo) => (
         <TodoItem key={todo.id} {...todo} />
       ))}
-    </div>
+    </Grid>
   );
 }
 

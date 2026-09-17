@@ -10,13 +10,15 @@ Due date & time
 Subtasks / Checklist
 
 
----
+
 
 ## -----------done----------
 
 change place?---
 
-------FUNCTIONS------
+---
+
+---FUNCTIONS------
 Add / Edit / Delete task --- need edit
 
 -----render
